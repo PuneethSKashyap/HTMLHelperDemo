@@ -1,0 +1,26 @@
+﻿@model HtmlHelperDemo.Models.User
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SignUp</h2>
+<form>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.username, new { @class = "control-label" })
+        @Html.EditorFor(m => Model.username, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.password, new { @class = "control-label" })
+        @Html.EditorFor(m => Model.password, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.email, new { @class = "control-label" })
+        @Html.EditorFor(m => Model.email, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Signup" name="signup" class="btn btn-success" />
+        <buttton class="btn btn-danger">Cancle</buttton>
+    </div>
+</form>
+

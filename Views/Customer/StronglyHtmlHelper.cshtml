@@ -1,0 +1,46 @@
+﻿@model HtmlHelperDemo.Models.Customer
+@{
+    ViewBag.Title = "StronglyHtmlHelper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StronglyHtmlHelper</h2>
+<form>
+    <div class="form-group">
+        @*@Html.Label("code","code", new { @class = "control-label" })*@
+        @Html.LabelFor(m => Model.Code, new { @class = "control-label" })
+        @*<label for="Code" class="control-label">Code</label>*@
+        @Html.TextBoxFor(m => Model.Code, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Name, new { @class = "control-label" })
+        @Html.TextBoxFor(m => Model.Name, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Email, new { @class = "control-label" })
+        @Html.TextBoxFor(m => Model.Email, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Password, new { @class = "control-label" })
+        @Html.PasswordFor(m => Model.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Address, new { @class = "control-label" })
+        @Html.TextAreaFor(m => Model.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Gender, new { @class = "control-label" })
+        @Html.RadioButtonFor(m => Model.Gender, "M") Male
+        @Html.RadioButtonFor(m => Model.Gender, "F") FeMale
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Type, new { @class = "control-label" })
+        @Html.DropDownListFor(m => Model.Type, new SelectList(Enum.GetValues(typeof(CType))), new { @class = "form-control" }) 
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Signup" name="signup" class="btn btn-success" />
+        <buttton class="btn btn-danger" onclick="check()">Cancle</buttton>
+    </div>
+
+</form>
+

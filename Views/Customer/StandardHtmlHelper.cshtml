@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "StandardHtmlHelper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    IEnumerable<string> state = new List<string> {
+       "select state", "Maharashtra","Karnataka","Rajasthan","Kerala","Delhi"
+    };
+}
+
+<h2>StandardHtmlHelper</h2>
+<form>
+    <div class="form-group">
+        @*label standard html helper*@
+        @Html.Label("customerid", "Customer Id",
+        new { @class = "control-label" })
+        @*textbox*@
+        @Html.TextBox("customerid", "", new { @class = "form-control", placeholder = "enter customer id" })
+    </div>
+    <div class="form-group">
+        @Html.Label("password", "Password",
+    new { @class = "control-label" })
+        @Html.Password("password", "", new { @class = "form-control", placeholder = "enter password" })
+    </div>
+    <div class="form-group">
+        @Html.Label("gender", "Gender",
+    new { @class = "control-label" })
+        @Html.RadioButton("gender", "M", true, new { @id = "rdbmale" })Male
+        @Html.RadioButton("gender", "F", new { @id = "rdbfemale" })FeMale
+    </div>
+    <div class="form-group">
+        @Html.Label("customerType", "Customer Type",
+    new { @class = "control-label" })
+        @Html.CheckBox("VIP") VIP
+        @Html.CheckBox("VVIP") VVIP
+        @Html.CheckBox("Regular") Regular
+    </div>
+    <div class="form-group">
+        @Html.Label("State", "State",
+    new { @class = "control-label" })
+        @Html.DropDownList("state", new SelectList(state), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("State", "State",
+    new { @class = "control-label" })
+        @Html.ListBox("state", new SelectList(state), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("address", "Address",
+    new { @class = "control-label" })
+        @Html.TextArea("address", "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Signup" name="signup" class="btn btn-success" />
+        <buttton class="btn btn-danger" onclick="check()">Cancle</buttton>
+    </div>
+</form>
+<script>
+    function check() {
+        alert("hello");
+    }
+</script>
